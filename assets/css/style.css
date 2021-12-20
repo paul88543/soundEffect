@@ -1,0 +1,22 @@
+body {
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+img {
+    cursor: pointer;
+}
+
+.form-check-inline {
+    display: inline-block;
+}
+
+.ring {
+    padding: 5px;
+    min-width: 50px;
+    background-color:cadetblue;
+    border-radius: 4px;
+    border-color: azure;
+    color: cornsilk;
+    cursor: pointer;
+}
