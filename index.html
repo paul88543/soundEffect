@@ -10,10 +10,10 @@
             var button = element;
             var button_num = document.querySelector('input[name=' + button.className + ']:checked').value;
             var random_num = random ? '-' + (Math.floor(Math.random() * 9) + 1) : '';
+            // random_num = button_num == 4 ? '-' + (9 - Math.floor(Math.random() * 3)) : random_num;
             var audio = new Audio('assets/' + button.className + '_sound' + button_num + random_num + '.mp3');
             audio.play();
         }
-
         function playsound_key(key) {
             var button_num = document.querySelector('input[name=plinko]:checked').value;
             var audio = new Audio('assets/plinko_sound' + button_num + '-' + key + '.mp3');
@@ -44,6 +44,30 @@
             <label class="form-check-label">
                 <input class="form-check-input" value="4" type="radio" name="button">
                 style 4
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="5" type="radio" name="button">
+                style 5
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="6" type="radio" name="button">
+                style 6
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="7" type="radio" name="button">
+                style 7
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="8" type="radio" name="button">
+                style 8
             </label>
         </div>
         <div></div>
@@ -94,6 +118,18 @@
             <label class="form-check-label">
                 <input class="form-check-input" value="2" type="radio" name="plinko">
                 style 2
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="3" type="radio" name="plinko">
+                style 3
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="4" type="radio" name="plinko">
+                style 4
             </label>
         </div>
 
