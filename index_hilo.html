@@ -1,0 +1,118 @@
+<html>
+<head>
+    <title>BlockChain Sound</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        var checked = document.querySelector('input[name=button]');
+        var button = document.getElementById('#button');
+
+        function bet() {
+            var audio = new Audio('assets/bet.mp3');
+            audio.play();
+        }
+
+        function cashout() {
+            var audio = new Audio('assets/cashout.mp3');
+            audio.play();
+        }
+
+        function playtype(result) {
+            if(result) {
+                play_turn();
+                setTimeout(play_roundwin, 1000);
+                setTimeout(play_flip, 1300);
+            } else {
+                play_turn();
+                setTimeout(play_flip, 1300);
+            }
+        }
+
+        function skip() {
+            play_turn();
+            setTimeout(play_flip, 1300);
+        }
+
+        function play_turn() {
+            var button_num = document.querySelector('input[name=turn]:checked').value;
+            var audio = new Audio('assets/turn' + button_num + '.mp3');
+            audio.play();
+        }
+
+        function play_roundwin() {
+            var button_num = document.querySelector('input[name=roundwin]:checked').value;
+            var audio = new Audio('assets/roundwin' + button_num + '.mp3');
+            audio.play();
+        }
+
+        function play_flip() {
+            var button_num = document.querySelector('input[name=flip]:checked').value;
+            var audio = new Audio('assets/flip' + button_num + '.mp3');
+            audio.play();
+        }
+    </script>
+</head>
+    <body>
+        換牌
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="turn" checked>
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="turn">
+                style 2
+            </label>
+        </div>
+        <div></div>
+
+        回合勝利
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="roundwin" checked>
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="roundwin">
+                style 2
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="3" type="radio" name="roundwin">
+                style 3
+            </label>
+        </div>
+        <div></div>
+
+        翻新牌
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="flip" checked>
+                style 1
+            </label>
+        </div>
+        <!-- <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="flip">
+                style 2
+            </label>
+        </div> -->
+        <div></div>
+        <hr>
+
+        <button class="bet" onclick="bet()">下注</button>
+        同 Plinko, Crash 下注聲<br>
+        <button class="cashout" onclick="cashout()">Cashout</button>
+        同 Crash Cashout 聲<br>
+        <button class="playtype win" onclick="playtype(true)">Higher or Same ↑ 53.85%(贏）</button>
+        換牌聲＋回合勝利＋翻新牌<br>
+        <button class="playtype loss" onclick="playtype(false)">Lower or Same ↑ 53.85%(輸）</button>
+        換牌聲＋翻新牌<br>
+        <button class="skip" onclick="skip()">SKIP</button>
+        換牌聲＋翻新牌<br>
+    </body>
+</html>

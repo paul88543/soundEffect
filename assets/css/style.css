@@ -20,3 +20,11 @@ img {
     color: cornsilk;
     cursor: pointer;
 }
+
+button {
+    padding: 10px 5px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 100px;
+}
