@@ -28,3 +28,10 @@ button {
     cursor: pointer;
     min-width: 100px;
 }
+
+.note {
+    padding: 5px;
+    background: #ff0000b8;
+    margin-top: 10px;
+    color: #fff;
+}

@@ -1,0 +1,138 @@
+<html>
+<head>
+    <title>BlockChain Sound</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        var checked = document.querySelector('input[name=button]');
+        var button = document.getElementById('#button');
+
+        function bet() {
+            var audio = new Audio('assets/video_poker/bet.mp3');
+            audio.play();
+        }
+
+        function cashout() {
+            var audio = new Audio('assets//video_poker/cashout.mp3');
+            audio.play();
+        }
+
+        function playtype(result) {
+            if(result) {
+                play_flip()
+                setTimeout(play_flip, 300);
+                setTimeout(play_flip, 600);
+                setTimeout(play_flip, 900);
+                setTimeout(play_flip, 1200);
+                setTimeout(cashout, 1500);
+            } else {
+                play_flip()
+                setTimeout(play_flip, 300);
+                setTimeout(play_flip, 600);
+                setTimeout(play_flip, 900);
+                setTimeout(play_flip, 1200);
+                setTimeout(play_roundlose, 1800);
+            }
+        }
+
+        function play_turn() {
+            var button_num = document.querySelector('input[name=turn]:checked').value;
+            var audio = new Audio('assets//video_poker/turn' + button_num + '.mp3');
+            audio.play();
+        }
+
+        function play_roundlose() {
+            var button_num = document.querySelector('input[name=lose]:checked').value;
+            var audio = new Audio('assets//video_poker/lose' + button_num + '.mp3');
+            if(button_num != 1){
+                audio.play();
+            }
+        }
+
+        function play_flip() {
+            var button_num = document.querySelector('input[name=flip]:checked').value;
+            var audio = new Audio('assets//video_poker/flip' + button_num + '.mp3');
+            audio.play();
+        }
+
+        function card_hold() {
+            var button_num = document.querySelector('input[name=hold]:checked').value;
+            var audio = new Audio('assets//video_poker/hold' + button_num + '.mp3');
+            audio.play();
+        }
+    </script>
+</head>
+    <body>
+        Hold
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="hold">
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="hold">
+                style 2
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="3" type="radio" name="hold" checked>
+                style 3
+            </label>
+        </div>
+        <div></div>
+
+        翻新牌
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="flip" checked>
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="flip">
+                style 2
+            </label>
+        </div>
+        <div></div>
+
+        輸掉
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="lose" checked>
+                無音效
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="lose">
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="3" type="radio" name="lose">
+                style 2
+            </label>
+        </div>
+        <div></div>
+        <hr>
+
+        <button class="bet" onclick="bet()">下注, Deal</button>
+        同 Plinko, Crash 下注聲<br>
+        <button class="cashout" onclick="cashout()">Win</button>
+        同 Crash Cashout 聲<br>
+        <button class="flip" onclick="play_flip()">首五張牌一起翻開</button>
+        翻牌聲<br>
+        <button class="hold" onclick="card_hold()">選中/取消選中同音效</button>
+        Hold<br>
+        <button class="playtype win" onclick="playtype(true)">Imcoming Cards 逐張翻開＋獲勝</button>
+        翻新牌＋贏<br>
+        <button class="playtype loss" onclick="playtype(false)">Imcoming Cards 逐張翻開＋輸掉</button>
+        翻新牌＋輸<br>
+
+        <div class="note">注：只有翻開牌有音效，蓋牌時沒</div>
+    </body>
+</html>
