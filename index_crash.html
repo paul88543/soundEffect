@@ -1,0 +1,156 @@
+<html>
+<head>
+    <title>BlockChain Sound</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        var checked = document.querySelector('input[name=button]');
+        var button = document.getElementById('#button');
+
+        function playsound(element,random){
+            var button = element;
+            var button_num = document.querySelector('input[name=' + button.className + ']:checked').value;
+            var random_num = random ? '-' + (Math.floor(Math.random() * 9) + 1) : '';
+            // random_num = button_num == 4 ? '-' + (9 - Math.floor(Math.random() * 3)) : random_num;
+            var audio = new Audio('assets/' + button.className + '_sound' + button_num + random_num + '.mp3');
+            audio.play();
+        }
+        function playsound_key(key) {
+            var button_num = document.querySelector('input[name=plinko]:checked').value;
+            var audio = new Audio('assets/plinko_sound' + button_num + '-' + key + '.mp3');
+            audio.play();
+        }
+    </script>
+</head>
+    <body>
+        <button class="home" onclick="location.href='index.html'">Home Page</button>
+        <hr>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="button" checked>
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="button">
+                style 2
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="3" type="radio" name="button">
+                style 3
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="4" type="radio" name="button">
+                style 4
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="5" type="radio" name="button">
+                style 5
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="6" type="radio" name="button">
+                style 6
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="7" type="radio" name="button">
+                style 7
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="8" type="radio" name="button">
+                style 8
+            </label>
+        </div>
+        <div></div>
+
+        <h3>下注按鈕聲音</h3>
+        <img id="button" class="button" src="assets/img/2021-12-20_11-17-37.png" alt="" onclick="playsound(this);">
+
+        <hr>
+        
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="cashout" checked>
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="cashout">
+                style 2
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="3" type="radio" name="cashout">
+                style 3
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="4" type="radio" name="cashout">
+                style 4
+            </label>
+        </div>
+        <div></div>
+
+        <h3>Cashout 聲音</h3>
+        <img id="button" class="cashout" src="assets/img/2021-12-20_14-01-41.png" alt="" onclick="playsound(this);">
+
+        <hr>
+        <h2>Plinko</h2>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="plinko" checked>
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="plinko">
+                style 2
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="3" type="radio" name="plinko">
+                style 3
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="4" type="radio" name="plinko">
+                style 4
+            </label>
+        </div>
+
+        <div></div>
+
+        <h3>連續點擊可模擬彈珠落於不同結果</h3>
+        <img id="button" class="plinko" src="assets/img/2021-12-20_11-17-37.png" alt="" onclick="playsound(this,true);">
+
+        <div></div>
+
+        <h3>單獨聽聲音</h3>
+        <button class="ring do" onclick="playsound_key(1);">Do</button>
+        <button class="ring re" onclick="playsound_key(2);">Re</button>
+        <button class="ring mi" onclick="playsound_key(3);">Mi</button>
+        <button class="ring fa" onclick="playsound_key(4);">Fa</button>
+        <button class="ring so" onclick="playsound_key(5);">So</button>
+        <button class="ring la" onclick="playsound_key(6);">La</button>
+        <button class="ring si" onclick="playsound_key(7);">Si</button>
+        <button class="ring do" onclick="playsound_key(8);">Do</button>
+        <button class="ring re" onclick="playsound_key(9);">Re</button>
+    </body>
+</html>
