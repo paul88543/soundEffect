@@ -43,7 +43,9 @@
         function diamonds() {
             var button_num = document.querySelector('input[name=diamonds]:checked').value;
             var audio = new Audio('assets/diamonds/diamonds' + button_num + '.mp3');
-            audio.play();
+            if(button_num != 0){
+                audio.play();
+            }
         }
 
         function start() {
@@ -105,7 +107,13 @@
         寶石進場
         <div class="form-check form-check-inline">
             <label class="form-check-label">
-                <input class="form-check-input" value="1" type="radio" name="diamonds" checked>
+                <input class="form-check-input" value="0" type="radio" name="diamonds" checked>
+                無音效
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="diamonds">
                 style 1
             </label>
         </div>
@@ -113,6 +121,18 @@
             <label class="form-check-label">
                 <input class="form-check-input" value="2" type="radio" name="diamonds">
                 style 2
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="3" type="radio" name="diamonds">
+                style 3
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="4" type="radio" name="diamonds">
+                style 4
             </label>
         </div>
         <div></div>
@@ -134,6 +154,12 @@
             <label class="form-check-label">
                 <input class="form-check-input" value="3" type="radio" name="win">
                 style 3
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="4" type="radio" name="win">
+                style 4
             </label>
         </div>
         <div></div>
