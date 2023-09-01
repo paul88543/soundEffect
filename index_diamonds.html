@@ -20,7 +20,7 @@
             audio_bg.volume = 0.5;
         }
 
-        function win(nm) {
+        function win() {
             var button_num = document.querySelector('input[name=win]:checked').value;
             var audio = new Audio('assets/diamonds/win' + button_num + '.mp3');
             audio.play();
@@ -37,6 +37,7 @@
             setTimeout(diamonds, 400);
             setTimeout(diamonds, 600);
             setTimeout(diamonds, 800);
+            setTimeout(win, 1000);
         }
 
         function diamonds() {
@@ -99,12 +100,6 @@
                 style 1
             </label>
         </div>
-        <div class="form-check form-check-inline">
-            <label class="form-check-label">
-                <input class="form-check-input" value="2" type="radio" name="start">
-                style 2
-            </label>
-        </div>
         <div></div>
 
         寶石進場
@@ -118,12 +113,6 @@
             <label class="form-check-label">
                 <input class="form-check-input" value="2" type="radio" name="diamonds">
                 style 2
-            </label>
-        </div>
-        <div class="form-check form-check-inline">
-            <label class="form-check-label">
-                <input class="form-check-input" value="3" type="radio" name="diamonds">
-                style 3
             </label>
         </div>
         <div></div>
@@ -155,7 +144,7 @@
         <button class="cashout" onclick="win()">獲勝</button>
         須選出 1 倍以下跟大於 1 倍兩種音效<br>
         <button class="flip" onclick="play()">開獎</button>
-        動畫背景音效＋五顆寶石進場＋獲勝<br>
+        動畫背景音效＋五顆寶石進場<br>
         背景聲音<button class="sButton" onclick="up()">+</button><button class="sButton" onclick="down()">-</button>
             <br>
         <div class="wins flex flex-wrap">
@@ -167,8 +156,6 @@
                 <button onclick="bg(5)">5</button>
                 <button onclick="bg(6)">6</button>
                 <button onclick="bg(7)">7</button>
-                <button onclick="bg(8)">8</button>
-                <button onclick="bg(9)">9</button>
             </div>
         </div>
 
