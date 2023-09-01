@@ -17,6 +17,10 @@ img {
     height: auto;
 }
 
+.w300 {
+    width: 300px;
+}
+
 .form-check-inline {
     display: inline-block;
 }
@@ -37,6 +41,10 @@ button {
     border-radius: 5px;
     cursor: pointer;
     min-width: 100px;
+}
+
+.sButton {
+    min-width: 50px;
 }
 
 button ~ input {

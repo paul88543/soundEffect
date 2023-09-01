@@ -1,0 +1,178 @@
+<html>
+<head>
+    <title>BlockChain Sound</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        var checked = document.querySelector('input[name=button]');
+        var button = document.getElementById('#button');
+        var audio_bg = new Audio();
+
+        function buttons() {
+            var button_num = document.querySelector('input[name=click]:checked').value;
+            var audio = new Audio('assets/diamonds/click' + button_num + '.mp3');
+            audio.play();
+        }
+
+        function bg(num) {
+            pause();
+            audio_bg = new Audio('assets/diamonds/bgm' + num + '.mp3');
+            audio_bg.play();
+            audio_bg.volume = 0.5;
+        }
+
+        function win(nm) {
+            var button_num = document.querySelector('input[name=win]:checked').value;
+            var audio = new Audio('assets/diamonds/win' + button_num + '.mp3');
+            audio.play();
+        }
+
+        function pause(){
+            audio_bg.pause();
+        }
+
+        function play() {
+            start();
+            diamonds();
+            setTimeout(diamonds, 200);
+            setTimeout(diamonds, 400);
+            setTimeout(diamonds, 600);
+            setTimeout(diamonds, 800);
+        }
+
+        function diamonds() {
+            var button_num = document.querySelector('input[name=diamonds]:checked').value;
+            var audio = new Audio('assets/diamonds/diamonds' + button_num + '.mp3');
+            audio.play();
+        }
+
+        function start() {
+            var button_num = document.querySelector('input[name=start]:checked').value;
+            var audio = new Audio('assets/diamonds/start' + button_num + '.mp3');
+            if(button_num != 0){
+                audio.play();
+            }
+        }
+
+        function up() {
+            audio_bg.volume = 0.75;
+        }
+
+        function down() {
+            audio_bg.volume = 0.25;
+        }
+    </script>
+</head>
+    <body>
+        <button class="home" onclick="location.href='index.html'">Home Page</button>
+        <hr>
+        按鈕聲
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="click" checked>
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="click">
+                style 2
+            </label>
+        </div>
+        <!-- <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="3" type="radio" name="click">
+                style 3
+            </label>
+        </div> -->
+        <div></div>
+
+        動畫背景音效
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="0" type="radio" name="start" checked>
+                無音效
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="start">
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="start">
+                style 2
+            </label>
+        </div>
+        <div></div>
+
+        寶石進場
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="diamonds" checked>
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="diamonds">
+                style 2
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="3" type="radio" name="diamonds">
+                style 3
+            </label>
+        </div>
+        <div></div>
+
+        獲勝
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="1" type="radio" name="win" checked>
+                style 1
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="2" type="radio" name="win">
+                style 2
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" value="3" type="radio" name="win">
+                style 3
+            </label>
+        </div>
+        <div></div>
+        <hr>
+
+        <button class="bet" onclick="buttons()">按鈕</button>
+        所有按鈕<br>
+        <button class="cashout" onclick="win()">獲勝</button>
+        須選出 1 倍以下跟大於 1 倍兩種音效<br>
+        <button class="flip" onclick="play()">開獎</button>
+        動畫背景音效＋五顆寶石進場＋獲勝<br>
+        背景聲音<button class="sButton" onclick="up()">+</button><button class="sButton" onclick="down()">-</button>
+            <br>
+        <div class="wins flex flex-wrap">
+            <div class="flex flex-wrap">
+                <button onclick="bg(1)">1</button>
+                <button onclick="bg(2)">2</button>
+                <button onclick="bg(3)">3</button>
+                <button onclick="bg(4)">4</button>
+                <button onclick="bg(5)">5</button>
+                <button onclick="bg(6)">6</button>
+                <button onclick="bg(7)">7</button>
+                <button onclick="bg(8)">8</button>
+                <button onclick="bg(9)">9</button>
+            </div>
+        </div>
+
+        <img class="w300" src="assets/img/bg.png" alt="">
+        
+    </body>
+</html>

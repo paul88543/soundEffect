@@ -1,0 +1,168 @@
+<html>
+<head>
+    <title>Bingo Sound</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        var checked = document.querySelector('input[name=button]');
+        var button = document.getElementById('#button');
+
+        function background_sound() {
+            var button_num = document.querySelector('input[name=background_sound]:checked').value;
+            var audio = new Audio('assets/bingobingo/background_sound' + button_num + '.mp3');
+            audio.loop = true;
+            audio.play();
+        }
+
+        function draw_list() {
+            for (var i = 1; i <= 10; i++) {
+                setTimeout(draw, (i-1) * 300);
+            }
+            setTimeout(step1_finish, 3000);
+        }
+
+        function step1_finish() {
+            var audio = new Audio('assets/bingobingo/step1_finish.mp3');
+            audio.play();
+        }
+
+        // function set_win_style() {
+        //     var style = document.querySelector('input[name=win]:checked').value;
+        //     var type_list = ['win_xs','win_s','win_m','win_l','win_xl'];
+
+        //     type_list.forEach(element => console.log(element));
+
+        // }
+
+        function win(num) {
+            var audio = new Audio('assets/bingobingo/win' + num + '.mp3');
+            audio.play();
+        }
+
+        function win_sp(name) {
+            var button_num = document.querySelector('input[name=' + name + ']').value;
+            var audio = new Audio('assets/bingobingo/win' + button_num + '.mp3');
+            audio.play();
+        }
+
+        function draw(num) {
+            var audio = new Audio('assets/bingobingo/draw1.mp3');
+            audio.play();
+        }
+
+        function button_click() {
+            var button_num = document.querySelector('input[name=click]:checked').value;
+            var audio = new Audio('assets/bingobingo/click' + button_num + '.mp3');
+            audio.play();
+        }
+    </script>
+</head>
+    <body>
+        <button class="home" onclick="location.href='index.html'">Home Page</button>
+        <hr>
+
+        背景音樂
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" value="1" type="radio" name="background_sound" checked>
+                        style 1
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" value="2" type="radio" name="background_sound">
+                        style 2
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" value="3" type="radio" name="background_sound">
+                        style 3
+                    </label>
+                </div>
+        
+                <div></div>
+        
+                按鈕
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" value="1" type="radio" name="click" checked>
+                        style 1
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" value="2" type="radio" name="click">
+                        style 2
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" value="3" type="radio" name="click">
+                        style 3
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" value="4" type="radio" name="click">
+                        style 4
+                    </label>
+                </div>
+                <div></div>
+                <hr>
+
+        <div class="content">
+            <div class="buttons">
+                <button class="backgroundsound" onclick="background_sound()">背景音樂</button><br>
+                <button class="cashout" onclick="draw_list()">發球音效</button>
+                連續 10 顆＋第一階段結束提示音<br>
+                <button class="flip" onclick="button_click()">按鈕</button>
+                各區塊按鈕點擊聲<br>
+                <button class="hold" onclick="return win_sp('win_xs')">中獎音效</button>
+                <input name="win_xs" type="number" max=16 value="7">
+                (10倍內）<br>
+                <button class="hold" onclick="return win_sp('win_s')">中獎音效</button>
+                <input name="win_s" type="number" max=16 value="8">
+                (100倍內）<br>
+                <button class="hold" onclick="return win_sp('win_m')">中獎音效</button>
+                <input name="win_m" type="number" max=16 value="9">
+                (200倍內）<br>
+                <button class="hold" onclick="return win_sp('win_l')">中獎音效</button>
+                <input name="win_l" type="number" max=16 value="10">
+                (1000倍內）<br>
+                <button class="hold" onclick="return win_sp('win_xl')">中獎音效</button>
+                <input name="win_xl" type="number" max=16 value="1">
+                (1000倍以上）<br>
+            </div>
+            <div class="wins flex flex-wrap">
+                中獎音效清單
+
+                <div class="flex flex-wrap">
+                    <button onclick="win(1)">1</button>
+                    <button onclick="win(2)">2</button>
+                    <button onclick="win(3)">3</button>
+                    <button onclick="win(4)">4</button>
+                    <button onclick="win(5)">5</button>
+                    <button onclick="win(6)">6</button>
+                    <button onclick="win(7)">7</button>
+                    <button onclick="win(8)">8</button>
+                    <button onclick="win(9)">9</button>
+                    <button onclick="win(10)">10</button>
+                    <button onclick="win(11)">11</button>
+                    <button onclick="win(12)">12</button>
+                    <button onclick="win(13)">13</button>
+                    <button onclick="win(14)">14</button>
+                    <button onclick="win(15)">15</button>
+                    <button onclick="win(16)">16</button>
+                </div>
+                其他推薦組合：<br>
+                9 10 1 5 15<br>
+                7 10 1 4 15
+                <br>
+            </div>
+        </div>
+
+        <div class="bg">
+            <img src="assets/bingobingo/bg.png" alt="">
+        </div>
+    </body>
+</html>
